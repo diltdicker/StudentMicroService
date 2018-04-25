@@ -4,17 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Student Micro Services</title>
+<title>Student Micro Services Extra Credit</title>
 </head>
-<body>
+<body onload="update_subjects()">
 <form>
 Subject:
-<select name="subject" id="subject_select">
-<option>History</option>
-<option>Engineering</option>
-<option>Nursing</option>
-<option>English</option>
-<option>Software</option>
+<select name="subjects" id="subject_select">
 </select>
 <br>
 Year:
@@ -22,7 +17,7 @@ Year:
 <input type="button" onclick="calc_grade()" value="Calculate Grade">
 <br>
 Grade:
-<input type="number" step=0.01 name="grade" max=100 value=0 id="grade_select"/>
+<input type="number" step=0.01 name="grade" value=0 max=100 id="grade_select"/>
 <input type="button" onclick="map_grade()" value="Map Letter Grade"/>
 <br>
 Letter Grade:

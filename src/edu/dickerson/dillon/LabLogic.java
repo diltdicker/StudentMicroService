@@ -5,7 +5,12 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+import net.sf.json.JSONSerializer;
 
 public class LabLogic {
 	
@@ -22,7 +27,7 @@ public class LabLogic {
 			}
 		}
 		try {
-			webUrl = new URL(url);
+			webUrl = new URL("http://" + url);
 			conn = (HttpURLConnection)webUrl.openConnection();
 			conn.setRequestMethod("GET");
 			conn.connect();
@@ -36,5 +41,29 @@ public class LabLogic {
 			return null;
 		}
 		return line;
+	}
+	
+	public static List<String> genJSONList(String json) {
+		System.out.println("json: " + json);
+		List<String> list = new ArrayList<String>();
+		JSONArray jsonArray = (JSONArray) JSONSerializer.toJSON(json);
+		for (int i = 0; i < jsonArray.size(); i++) {
+			list.add(jsonArray.getJSONObject(i).getString("subject"));
+		}
+		return list;
+	}
+	
+	public static String genJSONString(String json, String key) {
+		String str = null;
+		JSONObject jsonObj = (JSONObject) JSONSerializer.toJSON(json);
+		str = jsonObj.getString(key);
+		return str;
+	}
+	
+	public static double getnJSONDouble(String json, String key) {
+		double dbl = 0;
+		JSONObject jsonObj = (JSONObject) JSONSerializer.toJSON(json);
+		dbl = jsonObj.getDouble(key);
+		return dbl;
 	}
 }

@@ -4,9 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Student Micro Services</title>
 </head>
 <body>
-Testing 123...
+<h2>Student Micro Services</h2>
+<a href="lab5.jsp">Main Service</a>
+<br>
+<a href="lab5ec.jsp">Extra Credit here</a>
 </body>
 </html>
